@@ -26,9 +26,11 @@ class UpdateModeloData extends Data
 
     public static function rules(ValidationContext $context): array
     {
+        $modeloId = request()->route('modelo');
+
         return [
             'marca_id' => ['nullable', 'integer', 'exists:marcas,id'],
-            'nome' => ['nullable', 'string', 'max:30', 'min:3', Rule::unique('modelos', 'nome')],
+            'nome' => ['nullable', 'string', 'max:30', 'min:3', Rule::unique('modelos', 'nome')->ignore($modeloId)],
             'imagem' => ['nullable', 'file', 'mimes:png,jpeg,jpg'],
             'numero_portas' => ['nullable', 'integer', 'digits_between:1,5'],
             'lugares' => ['nullable', 'integer', 'digits_between:1,20'],

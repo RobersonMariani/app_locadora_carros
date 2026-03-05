@@ -79,6 +79,6 @@ class MarcaController extends Controller
 
         $this->deleteMarcaUseCase->execute($marcaModel);
 
-        return response()->json(['msg' => 'A marca foi removida com sucesso'], 200);
+        return response()->json(null, 204);
     }
 }

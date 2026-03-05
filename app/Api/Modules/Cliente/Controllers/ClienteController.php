@@ -75,6 +75,6 @@ class ClienteController extends Controller
             return response()->json(['erro' => 'Impossível realizar a remoção. O recurso solicitado não existe'], 404);
         }
 
-        return response()->json(['msg' => 'O cliente foi removido com sucesso']);
+        return response()->json(null, 204);
     }
 }

@@ -79,6 +79,6 @@ class ModeloController extends Controller
 
         $this->deleteModeloUseCase->execute($modeloModel);
 
-        return response()->json(['msg' => 'O modelo foi removido com sucesso'], 200);
+        return response()->json(null, 204);
     }
 }

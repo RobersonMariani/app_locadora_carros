@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api\Modules\Modelo\Resources;
 
+use App\Api\Modules\Carro\Resources\CarroResource;
 use App\Api\Modules\Marca\Resources\MarcaResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -23,7 +24,7 @@ class ModeloResource extends JsonResource
             'air_bag' => $this->air_bag,
             'abs' => $this->abs,
             'marca' => $this->whenLoaded('marca', fn () => MarcaResource::make($this->marca)),
-            'carros' => $this->whenLoaded('carros'),
+            'carros' => $this->whenLoaded('carros', fn () => CarroResource::collection($this->carros)),
         ];
     }
 }
