@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ClienteSeeder::class,
             CarroSeeder::class,
             LocacaoSeeder::class,
+            PagamentoSeeder::class,
         ]);
     }
 }

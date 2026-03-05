@@ -12,7 +12,18 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome'];
+    protected $fillable = [
+        'nome',
+        'cpf',
+        'email',
+        'telefone',
+        'data_nascimento',
+        'cnh',
+    ];
+
+    protected $casts = [
+        'data_nascimento' => 'date',
+    ];
 
     public function locacoes(): HasMany
     {

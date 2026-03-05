@@ -11,21 +11,6 @@ class ClienteSeeder extends Seeder
 {
     public function run(): void
     {
-        $clientes = [
-            'João Silva',
-            'Maria Oliveira',
-            'Carlos Santos',
-            'Ana Costa',
-            'Pedro Souza',
-            'Juliana Lima',
-            'Fernando Alves',
-            'Patrícia Ferreira',
-            'Lucas Pereira',
-            'Camila Rocha',
-        ];
-
-        foreach ($clientes as $nome) {
-            Cliente::factory()->create(['nome' => $nome]);
-        }
+        Cliente::factory(15)->create();
     }
 }

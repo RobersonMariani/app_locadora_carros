@@ -14,6 +14,8 @@ class ClienteQueryData extends Data
 {
     public function __construct(
         public ?string $search = null,
+        public ?string $cpf = null,
+        public ?string $email = null,
         public ?int $page = 1,
         public ?int $perPage = null,
     ) {
@@ -24,6 +26,8 @@ class ClienteQueryData extends Data
     {
         return [
             'search' => ['nullable', 'string', 'max:100'],
+            'cpf' => ['nullable', 'string', 'max:14'],
+            'email' => ['nullable', 'string', 'max:255'],
             'page' => ['nullable', 'integer', 'min:1'],
             'per_page' => ['nullable', 'integer', 'min:1', 'max:100'],
         ];

@@ -24,6 +24,8 @@ class ClienteRepository
     {
         return Cliente::query()
             ->when($query->search, fn ($q, $v) => $q->where('nome', 'like', "%{$v}%"))
+            ->when($query->cpf, fn ($q, $v) => $q->where('cpf', 'like', "%{$v}%"))
+            ->when($query->email, fn ($q, $v) => $q->where('email', 'like', "%{$v}%"))
             ->orderBy('id', 'desc')
             ->paginate(perPage: $query->perPage, page: $query->page);
     }

@@ -25,6 +25,9 @@ class CarroRepository
         return Carro::query()
             ->with('modelo')
             ->when($query->search, fn ($q, $v) => $q->where('placa', 'like', "%{$v}%"))
+            ->when($query->cor, fn ($q, $v) => $q->where('cor', $v))
+            ->when($query->anoFabricacao !== null, fn ($q) => $q->where('ano_fabricacao', $query->anoFabricacao))
+            ->when($query->disponivel !== null, fn ($q) => $q->where('disponivel', $query->disponivel))
             ->orderBy('id', 'desc')
             ->paginate(perPage: $query->perPage, page: $query->page);
     }
@@ -39,5 +42,15 @@ class CarroRepository
     public function delete(Carro $carro): bool
     {
         return $carro->delete();
+    }
+
+    public function marcarDisponivel(int $id): void
+    {
+        Carro::query()->where('id', $id)->update(['disponivel' => true]);
+    }
+
+    public function marcarIndisponivel(int $id): void
+    {
+        Carro::query()->where('id', $id)->update(['disponivel' => false]);
     }
 }

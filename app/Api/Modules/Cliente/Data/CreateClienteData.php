@@ -14,12 +14,22 @@ class CreateClienteData extends Data
 {
     public function __construct(
         public string $nome,
+        public string $cpf,
+        public ?string $email = null,
+        public ?string $telefone = null,
+        public ?string $dataNascimento = null,
+        public ?string $cnh = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
     {
         return [
             'nome' => ['required', 'string', 'max:30'],
+            'cpf' => ['required', 'string', 'max:14', 'unique:clientes,cpf'],
+            'email' => ['nullable', 'string', 'email', 'max:255', 'unique:clientes,email'],
+            'telefone' => ['nullable', 'string', 'max:20'],
+            'data_nascimento' => ['nullable', 'date'],
+            'cnh' => ['nullable', 'string', 'max:20', 'unique:clientes,cnh'],
         ];
     }
 
@@ -27,6 +37,11 @@ class CreateClienteData extends Data
     {
         return [
             'nome' => $this->nome,
+            'cpf' => $this->cpf,
+            'email' => $this->email,
+            'telefone' => $this->telefone,
+            'data_nascimento' => $this->dataNascimento,
+            'cnh' => $this->cnh,
         ];
     }
 }

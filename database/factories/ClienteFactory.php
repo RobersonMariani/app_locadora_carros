@@ -18,6 +18,11 @@ class ClienteFactory extends Factory
     {
         return [
             'nome' => fake()->name(),
+            'cpf' => fake()->unique()->numerify('###.###.###-##'),
+            'email' => fake()->unique()->safeEmail(),
+            'telefone' => fake()->phoneNumber(),
+            'data_nascimento' => fake()->dateTimeBetween('-60 years', '-18 years'),
+            'cnh' => fake()->unique()->numerify('###########'),
         ];
     }
 }

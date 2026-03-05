@@ -17,11 +17,17 @@ class CarroFactory extends Factory
 
     public function definition(): array
     {
+        $anoFabricacao = fake()->numberBetween(2018, 2025);
+
         return [
             'modelo_id' => Modelo::factory(),
             'placa' => strtoupper(fake()->unique()->bothify('???#?##')),
             'disponivel' => true,
             'km' => fake()->numberBetween(0, 150000),
+            'cor' => fake()->randomElement(['Branco', 'Preto', 'Prata', 'Vermelho', 'Azul', 'Cinza']),
+            'ano_fabricacao' => $anoFabricacao,
+            'ano_modelo' => $anoFabricacao + fake()->randomElement([0, 1]),
+            'renavam' => fake()->unique()->numerify('###########'),
         ];
     }
 

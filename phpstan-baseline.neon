@@ -85,40 +85,28 @@ parameters:
 			path: app/Api/Modules/Carro/Resources/CarroResource.php
 
 		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$abs\.$#'
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$cor\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
 
 		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$air_bag\.$#'
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$ano_fabricacao\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
 
 		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$ano_modelo\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
 
 		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$lugares\.$#'
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$renavam\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
-
-		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$nome\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
-
-		-
-			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$numero_portas\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
 
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
@@ -218,6 +206,36 @@ parameters:
 
 		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$cpf\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$telefone\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$data_nascimento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$cnh\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
@@ -355,6 +373,30 @@ parameters:
 			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
 
 		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$valor_total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$observacoes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$pagamentos\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
 			count: 2
@@ -458,6 +500,12 @@ parameters:
 
 		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$nome\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Marca/Resources/MarcaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$modelos\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Marca/Resources/MarcaResource.php
@@ -593,6 +641,60 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$carros\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$locacao_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$valor\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$tipo\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$metodo_pagamento\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$data_pagamento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$observacoes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Pagamento\\Resources\\PagamentoResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
 
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'

@@ -14,6 +14,9 @@ class CarroQueryData extends Data
 {
     public function __construct(
         public ?string $search = null,
+        public ?string $cor = null,
+        public ?int $anoFabricacao = null,
+        public ?bool $disponivel = null,
         public ?int $page = 1,
         public ?int $perPage = null,
     ) {
@@ -24,6 +27,9 @@ class CarroQueryData extends Data
     {
         return [
             'search' => ['nullable', 'string', 'max:100'],
+            'cor' => ['nullable', 'string', 'max:30'],
+            'ano_fabricacao' => ['nullable', 'integer', 'min:1900'],
+            'disponivel' => ['nullable', 'boolean'],
             'page' => ['nullable', 'integer', 'min:1'],
             'per_page' => ['nullable', 'integer', 'min:1', 'max:100'],
         ];
