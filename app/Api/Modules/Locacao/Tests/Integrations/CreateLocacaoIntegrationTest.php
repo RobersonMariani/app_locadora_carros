@@ -37,9 +37,12 @@ class CreateLocacaoIntegrationTest extends TestCase
         ]);
         $carro = Carro::create([
             'modelo_id' => $modelo->id,
-            'placa' => 'ABC-1234',
+            'placa' => 'ABC-'.fake()->unique()->numerify('####'),
             'disponivel' => true,
             'km' => 0,
+            'cor' => 'Branco',
+            'ano_fabricacao' => 2023,
+            'ano_modelo' => 2024,
         ]);
 
         return ['cliente' => $cliente, 'carro' => $carro];

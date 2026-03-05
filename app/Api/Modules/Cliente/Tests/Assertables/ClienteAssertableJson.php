@@ -13,6 +13,11 @@ class ClienteAssertableJson
         return $json
             ->whereType('id', 'integer')
             ->whereType('nome', 'string')
+            ->whereType('cpf', 'string')
+            ->has('email')
+            ->has('telefone')
+            ->has('data_nascimento')
+            ->has('cnh')
             ->whereType('created_at', 'string')
             ->whereType('updated_at', 'string')
             ->etc();

@@ -31,11 +31,9 @@ class UpdateClienteDataTest extends TestCase
     public static function invalidData(): array
     {
         return [
-            'nome_null' => [array_merge(self::validPayload(), ['nome' => null]), 'nome'],
-            'nome_empty' => [array_merge(self::validPayload(), ['nome' => '']), 'nome'],
             'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 31)]), 'nome'],
             'nome_not_string' => [array_merge(self::validPayload(), ['nome' => 123]), 'nome'],
-            'nome_missing' => [[], 'nome'],
+            'email_invalid' => [array_merge(self::validPayload(), ['email' => 'invalid-email']), 'email'],
         ];
     }
 

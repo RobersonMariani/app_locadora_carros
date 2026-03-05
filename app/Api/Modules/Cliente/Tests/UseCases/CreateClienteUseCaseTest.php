@@ -19,7 +19,10 @@ class CreateClienteUseCaseTest extends TestCase
     public function testExecuteShouldReturnClienteWhenDataIsValid(): void
     {
         // Arrange
-        $data = new CreateClienteData(nome: 'João Silva');
+        $data = new CreateClienteData(
+            nome: 'João Silva',
+            cpf: '123.456.789-00',
+        );
         $expectedResult = new Cliente(['id' => 1, 'nome' => 'João Silva']);
 
         $this->instance(

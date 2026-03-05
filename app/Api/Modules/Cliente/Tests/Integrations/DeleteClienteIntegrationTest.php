@@ -27,8 +27,7 @@ class DeleteClienteIntegrationTest extends TestCase
             ->withHeader('Accept', 'application/json')
             ->withHeader('Authorization', 'Bearer '.$token)
             ->deleteJson('/api/v1/cliente/'.$cliente->id)
-            ->assertOk()
-            ->assertJson(['msg' => 'O cliente foi removido com sucesso']);
+            ->assertNoContent();
     }
 
     public function testShouldReturnNotFoundWhenIdDoesNotExist(): void

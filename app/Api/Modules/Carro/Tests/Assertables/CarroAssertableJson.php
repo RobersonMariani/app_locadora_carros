@@ -16,6 +16,10 @@ class CarroAssertableJson
             ->whereType('placa', 'string')
             ->has('disponivel')
             ->whereType('km', 'integer')
+            ->whereType('cor', 'string')
+            ->whereType('ano_fabricacao', 'integer')
+            ->whereType('ano_modelo', 'integer')
+            ->has('renavam')
             ->whereType('created_at', 'string')
             ->whereType('updated_at', 'string')
             ->etc();

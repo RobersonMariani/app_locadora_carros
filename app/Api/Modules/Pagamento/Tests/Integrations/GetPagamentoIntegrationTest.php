@@ -2,44 +2,44 @@
 
 declare(strict_types=1);
 
-namespace App\Api\Modules\Cliente\Tests\Integrations;
+namespace App\Api\Modules\Pagamento\Tests\Integrations;
 
-use App\Api\Modules\Cliente\Tests\Assertables\ClienteAssertableJson;
+use App\Api\Modules\Pagamento\Tests\Assertables\PagamentoAssertableJson;
+use App\Models\Locacao;
+use App\Models\Pagamento;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
-#[Group('cliente')]
-class CreateClienteIntegrationTest extends TestCase
+#[Group('pagamento')]
+class GetPagamentoIntegrationTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const ENDPOINT = '/api/v1/cliente';
-
-    public function testShouldReturnCreatedWhenDataIsValid(): void
+    public function testShouldReturnPagamentoWhenFound(): void
     {
         // Arrange
         $user = User::factory()->create(['password' => 'password']);
         $token = auth('api')->login($user);
-        $payload = [
-            'nome' => 'João Silva',
-            'cpf' => '123.456.789-00',
-        ];
+        $locacao = Locacao::factory()->create();
+        $pagamento = Pagamento::factory()->create(['locacao_id' => $locacao->id]);
 
         // Act & Assert
         $this
             ->withHeader('Accept', 'application/json')
             ->withHeader('Authorization', 'Bearer '.$token)
-            ->postJson(self::ENDPOINT, $payload)
-            ->assertCreated()
+            ->getJson('/api/v1/pagamento/'.$pagamento->id)
+            ->assertOk()
             ->assertJson(function (AssertableJson $json) {
-                ClienteAssertableJson::schema($json);
+                $json->has('data', function (AssertableJson $json) {
+                    PagamentoAssertableJson::schema($json);
+                })->etc();
             });
     }
 
-    public function testShouldReturnUnprocessableWhenRequiredFieldsMissing(): void
+    public function testShouldReturnNotFoundWhenPagamentoDoesNotExist(): void
     {
         // Arrange
         $user = User::factory()->create(['password' => 'password']);
@@ -49,8 +49,8 @@ class CreateClienteIntegrationTest extends TestCase
         $this
             ->withHeader('Accept', 'application/json')
             ->withHeader('Authorization', 'Bearer '.$token)
-            ->postJson(self::ENDPOINT, [])
-            ->assertUnprocessable();
+            ->getJson('/api/v1/pagamento/99999')
+            ->assertNotFound();
     }
 
     public function testShouldReturnUnauthorizedWhenNotAuthenticated(): void
@@ -58,7 +58,7 @@ class CreateClienteIntegrationTest extends TestCase
         // Act & Assert
         $this
             ->withHeader('Accept', 'application/json')
-            ->postJson(self::ENDPOINT, ['nome' => 'João Silva', 'cpf' => '123.456.789-00'])
+            ->getJson('/api/v1/pagamento/1')
             ->assertUnauthorized();
     }
 }

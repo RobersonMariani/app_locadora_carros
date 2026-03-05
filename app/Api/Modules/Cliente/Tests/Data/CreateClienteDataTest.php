@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api\Modules\Cliente\Tests\Data;
 
 use App\Api\Modules\Cliente\Data\CreateClienteData;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
@@ -13,10 +14,13 @@ use Tests\TestCase;
 #[Group('cliente')]
 class CreateClienteDataTest extends TestCase
 {
+    use RefreshDatabase;
+
     private static function validPayload(): array
     {
         return [
             'nome' => 'João Silva',
+            'cpf' => '123.456.789-00',
         ];
     }
 
@@ -25,6 +29,12 @@ class CreateClienteDataTest extends TestCase
         return [
             'all_required_fields' => [self::validPayload()],
             'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 30)])],
+            'with_optional_fields' => [array_merge(self::validPayload(), [
+                'email' => 'test@example.com',
+                'telefone' => '11999999999',
+                'data_nascimento' => '1990-01-15',
+                'cnh' => '12345678901',
+            ])],
         ];
     }
 
@@ -35,7 +45,11 @@ class CreateClienteDataTest extends TestCase
             'nome_empty' => [array_merge(self::validPayload(), ['nome' => '']), 'nome'],
             'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 31)]), 'nome'],
             'nome_not_string' => [array_merge(self::validPayload(), ['nome' => 123]), 'nome'],
-            'nome_missing' => [[], 'nome'],
+            'nome_missing' => [collect(self::validPayload())->except('nome')->toArray(), 'nome'],
+            'cpf_null' => [array_merge(self::validPayload(), ['cpf' => null]), 'cpf'],
+            'cpf_empty' => [array_merge(self::validPayload(), ['cpf' => '']), 'cpf'],
+            'cpf_too_long' => [array_merge(self::validPayload(), ['cpf' => str_repeat('1', 15)]), 'cpf'],
+            'cpf_missing' => [collect(self::validPayload())->except('cpf')->toArray(), 'cpf'],
         ];
     }
 

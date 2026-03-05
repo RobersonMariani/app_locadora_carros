@@ -26,6 +26,9 @@ class CreateCarroDataTest extends TestCase
             'placa' => 'ABC1234',
             'disponivel' => true,
             'km' => 50000,
+            'cor' => 'Branco',
+            'ano_fabricacao' => 2023,
+            'ano_modelo' => 2024,
         ];
     }
 
@@ -36,6 +39,7 @@ class CreateCarroDataTest extends TestCase
             'placa_max_length' => [array_merge(self::validPayload(), ['placa' => str_repeat('A', 10)])],
             'disponivel_false' => [array_merge(self::validPayload(), ['disponivel' => false])],
             'km_zero' => [array_merge(self::validPayload(), ['km' => 0])],
+            'with_renavam' => [array_merge(self::validPayload(), ['renavam' => '12345678901'])],
         ];
     }
 
@@ -52,6 +56,10 @@ class CreateCarroDataTest extends TestCase
             'disponivel_not_boolean' => [array_merge(self::validPayload(), ['disponivel' => 'yes']), 'disponivel'],
             'km_missing' => [collect(self::validPayload())->except('km')->toArray(), 'km'],
             'km_not_integer' => [array_merge(self::validPayload(), ['km' => 1.5]), 'km'],
+            'cor_missing' => [collect(self::validPayload())->except('cor')->toArray(), 'cor'],
+            'cor_empty' => [array_merge(self::validPayload(), ['cor' => '']), 'cor'],
+            'ano_fabricacao_missing' => [collect(self::validPayload())->except('ano_fabricacao')->toArray(), 'ano_fabricacao'],
+            'ano_modelo_missing' => [collect(self::validPayload())->except('ano_modelo')->toArray(), 'ano_modelo'],
         ];
     }
 

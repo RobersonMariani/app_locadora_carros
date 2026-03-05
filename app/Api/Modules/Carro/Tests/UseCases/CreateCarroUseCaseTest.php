@@ -24,6 +24,9 @@ class CreateCarroUseCaseTest extends TestCase
             placa: 'ABC1234',
             disponivel: true,
             km: 50000,
+            cor: 'Branco',
+            anoFabricacao: 2023,
+            anoModelo: 2024,
         );
         $expectedResult = new Carro([
             'id' => 1,

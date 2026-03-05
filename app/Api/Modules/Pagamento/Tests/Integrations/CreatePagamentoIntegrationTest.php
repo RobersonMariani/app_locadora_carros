@@ -2,39 +2,35 @@
 
 declare(strict_types=1);
 
-namespace App\Api\Modules\Carro\Tests\Integrations;
+namespace App\Api\Modules\Pagamento\Tests\Integrations;
 
-use App\Api\Modules\Carro\Tests\Assertables\CarroAssertableJson;
-use App\Models\Marca;
-use App\Models\Modelo;
+use App\Api\Modules\Pagamento\Tests\Assertables\PagamentoAssertableJson;
+use App\Models\Locacao;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
-#[Group('carro')]
-class CreateCarroIntegrationTest extends TestCase
+#[Group('pagamento')]
+class CreatePagamentoIntegrationTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const ENDPOINT = '/api/v1/carro';
+    private const ENDPOINT = '/api/v1/pagamento';
 
     public function testShouldReturnCreatedWhenDataIsValid(): void
     {
         // Arrange
         $user = User::factory()->create(['password' => 'password']);
         $token = auth('api')->login($user);
-        $marca = Marca::factory()->create();
-        $modelo = Modelo::factory()->create(['marca_id' => $marca->id]);
+        $locacao = Locacao::factory()->create();
         $payload = [
-            'modelo_id' => $modelo->id,
-            'placa' => 'ABC1234',
-            'disponivel' => true,
-            'km' => 50000,
-            'cor' => 'Branco',
-            'ano_fabricacao' => 2023,
-            'ano_modelo' => 2024,
+            'locacao_id' => $locacao->id,
+            'valor' => 100.50,
+            'tipo' => 'diaria',
+            'metodo_pagamento' => 'pix',
+            'data_pagamento' => '2024-01-15',
         ];
 
         // Act & Assert
@@ -44,7 +40,9 @@ class CreateCarroIntegrationTest extends TestCase
             ->postJson(self::ENDPOINT, $payload)
             ->assertCreated()
             ->assertJson(function (AssertableJson $json) {
-                CarroAssertableJson::schema($json);
+                $json->has('data', function (AssertableJson $json) {
+                    PagamentoAssertableJson::schema($json);
+                })->etc();
             });
     }
 
@@ -65,16 +63,13 @@ class CreateCarroIntegrationTest extends TestCase
     public function testShouldReturnUnauthorizedWhenNotAuthenticated(): void
     {
         // Arrange
-        $marca = Marca::factory()->create();
-        $modelo = Modelo::factory()->create(['marca_id' => $marca->id]);
+        $locacao = Locacao::factory()->create();
         $payload = [
-            'modelo_id' => $modelo->id,
-            'placa' => 'ABC1234',
-            'disponivel' => true,
-            'km' => 50000,
-            'cor' => 'Branco',
-            'ano_fabricacao' => 2023,
-            'ano_modelo' => 2024,
+            'locacao_id' => $locacao->id,
+            'valor' => 100.50,
+            'tipo' => 'diaria',
+            'metodo_pagamento' => 'pix',
+            'data_pagamento' => '2024-01-15',
         ];
 
         // Act & Assert

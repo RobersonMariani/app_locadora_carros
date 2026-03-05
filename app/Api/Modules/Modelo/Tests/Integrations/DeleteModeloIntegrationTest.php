@@ -31,8 +31,7 @@ class DeleteModeloIntegrationTest extends TestCase
             ->withHeader('Accept', 'application/json')
             ->withHeader('Authorization', 'Bearer '.$token)
             ->deleteJson(self::ENDPOINT.'/'.$modelo->id)
-            ->assertOk()
-            ->assertJson(['msg' => 'O modelo foi removido com sucesso']);
+            ->assertNoContent();
     }
 
     public function testShouldReturnNotFoundWhenIdDoesNotExist(): void

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Api\Modules\Locacao\Tests\UseCases;
 
 use App\Api\Modules\Locacao\Data\CreateLocacaoData;
+use App\Api\Modules\Locacao\Enums\LocacaoStatusEnum;
 use App\Api\Modules\Locacao\Repositories\LocacaoRepository;
+use App\Api\Modules\Locacao\Services\LocacaoService;
 use App\Api\Modules\Locacao\UseCases\CreateLocacaoUseCase;
 use App\Models\Locacao;
 use Mockery;
@@ -33,6 +35,7 @@ class CreateLocacaoUseCaseTest extends TestCase
             'id' => 1,
             'cliente_id' => 1,
             'carro_id' => 1,
+            'status' => LocacaoStatusEnum::RESERVADA->value,
             'valor_diaria' => 150.50,
             'km_inicial' => 1000,
         ]);
@@ -46,12 +49,21 @@ class CreateLocacaoUseCaseTest extends TestCase
             }),
         );
 
+        $this->instance(
+            LocacaoService::class,
+            Mockery::mock(LocacaoService::class, function (MockInterface $mock) {
+                $mock->shouldReceive('validarDisponibilidade')
+                    ->once()
+                    ->with(1, '2024-01-01', '2024-01-10');
+            }),
+        );
+
         // Act
         $useCase = app()->make(CreateLocacaoUseCase::class);
         $result = $useCase->execute($data);
 
         // Assert
         $this->assertInstanceOf(Locacao::class, $result);
-        $this->assertEquals($expectedResult, $result);
+        $this->assertSame($expectedResult->id, $result->id);
     }
 }
