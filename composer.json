@@ -9,7 +9,6 @@
         "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10",
-        "laravel/ui": "^4.6",
         "spatie/laravel-data": "^4.20",
         "tymon/jwt-auth": "^2.2"
     },
