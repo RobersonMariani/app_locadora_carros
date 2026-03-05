@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CarroController;
-use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\LocacaoController;
-use App\Http\Controllers\MarcaController;
-use App\Http\Controllers\ModeloController;
+use App\Api\Modules\Auth\Controllers\AuthController;
+use App\Api\Modules\Carro\Controllers\CarroController;
+use App\Api\Modules\Cliente\Controllers\ClienteController;
+use App\Api\Modules\Locacao\Controllers\LocacaoController;
+use App\Api\Modules\Marca\Controllers\MarcaController;
+use App\Api\Modules\Modelo\Controllers\ModeloController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->middleware('jwt.auth')->group(function () {

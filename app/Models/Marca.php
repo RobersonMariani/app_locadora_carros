@@ -4,32 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Marca extends Model
 {
     use HasFactory;
+
     protected $fillable = ['nome', 'imagem'];
 
-    public function rules()
+    public function modelos(): HasMany
     {
-        return [
-            'nome' => 'required|unique:marcas',
-            'imagem' => 'required|file|mimes:png',
-        ];
-    }
-
-    public function feedback()
-    {
-        return [
-            'required' => 'O campo :attribute é obrigatório.',
-            'nome.unique' => 'O nome da marca já existe.',
-            'imagem.mimes' => 'O campo :attribute deve ser um arquivo do tipo png'
-        ];
-    }
-
-    public function modelos()
-    {
-        //uma marca possui vários modelos
         return $this->hasMany(Modelo::class);
     }
 }

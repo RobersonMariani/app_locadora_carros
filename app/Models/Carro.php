@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Carro extends Model
 {
@@ -11,25 +13,13 @@ class Carro extends Model
 
     protected $fillable = ['modelo_id', 'placa', 'disponivel', 'km'];
 
-    public function rules()
-    {
-        return [
-            'modelo_id' => 'exists:modelos,id',
-            'placa' => 'required',
-            'disponivel' => 'required',
-            'km' => 'required',
-        ];
-    }
-
-    public function feedback()
-    {
-        return [
-            'required' => 'O campo :attribute é obrigatório.',
-        ];
-    }
-
-    public function modelo()
+    public function modelo(): BelongsTo
     {
         return $this->belongsTo(Modelo::class);
+    }
+
+    public function locacoes(): HasMany
+    {
+        return $this->hasMany(Locacao::class);
     }
 }

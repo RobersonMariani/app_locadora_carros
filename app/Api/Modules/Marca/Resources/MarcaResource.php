@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Api\Modules\Marca\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
+
+class MarcaResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'nome' => $this->nome,
+            'imagem_url' => $this->imagem ? Storage::disk('public')->url($this->imagem) : null,
+            'modelos' => $this->whenLoaded('modelos'),
+        ];
+    }
+}

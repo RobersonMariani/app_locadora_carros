@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Cliente extends Model
 {
@@ -11,17 +12,8 @@ class Cliente extends Model
 
     protected $fillable = ['nome'];
 
-    public function rules()
+    public function locacoes(): HasMany
     {
-        return [
-            'nome' => 'required',
-        ];
-    }
-
-    public function feedback()
-    {
-        return [
-            'required' => 'O campo :attribute é obrigatório.',
-        ];
+        return $this->hasMany(Locacao::class);
     }
 }
