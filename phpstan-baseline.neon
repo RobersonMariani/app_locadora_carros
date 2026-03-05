@@ -19,6 +19,30 @@ parameters:
 			path: app/Api/Modules/Auth/Resources/AuthResource.php
 
 		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Auth/Tests/Integrations/AuthIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Auth/Tests/UseCases/LoginUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Auth/Tests/UseCases/LogoutUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Auth/Tests/UseCases/RefreshTokenUseCaseTest.php
+
+		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$created_at\.$#'
 			identifier: property.notFound
 			count: 1
@@ -97,6 +121,84 @@ parameters:
 			path: app/Api/Modules/Carro/Resources/ModeloResource.php
 
 		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Api/Modules/Carro/Tests/Data/CreateCarroDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Api/Modules/Carro/Tests/Data/UpdateCarroDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Carro/Tests/Integrations/CreateCarroIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Carro/Tests/Integrations/CreateCarroIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Tests/Integrations/DeleteCarroIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Carro/Tests/Integrations/DeleteCarroIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Carro/Tests/Integrations/GetCarroIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Carro/Tests/Integrations/GetCarroIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Tests/Integrations/UpdateCarroIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Carro/Tests/Integrations/UpdateCarroIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Tests/UseCases/CreateCarroUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Carro/Tests/UseCases/GetCarroUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Tests/UseCases/GetCarrosUseCaseTest.php
+
+		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$created_at\.$#'
 			identifier: property.notFound
 			count: 1
@@ -119,6 +221,66 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Cliente/Tests/Integrations/CreateClienteIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Cliente/Tests/Integrations/DeleteClienteIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Cliente/Tests/Integrations/GetClienteIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Cliente/Tests/Integrations/UpdateClienteIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Tests/UseCases/CreateClienteUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Api/Modules/Cliente/Tests/UseCases/DeleteClienteUseCaseTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: app/Api/Modules/Cliente/Tests/UseCases/DeleteClienteUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Cliente/Tests/UseCases/GetClienteUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Tests/UseCases/GetClientesUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Api/Modules/Cliente/Tests/UseCases/UpdateClienteUseCaseTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$carro_id\.$#'
@@ -193,6 +355,96 @@ parameters:
 			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
 
 		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Locacao/Tests/Data/CreateLocacaoDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Locacao/Tests/Data/UpdateLocacaoDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/Integrations/CreateLocacaoIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Locacao/Tests/Integrations/CreateLocacaoIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/Integrations/DeleteLocacaoIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Locacao/Tests/Integrations/DeleteLocacaoIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/Integrations/GetLocacaoIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Locacao/Tests/Integrations/GetLocacaoIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/Integrations/UpdateLocacaoIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Locacao/Tests/Integrations/UpdateLocacaoIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/UseCases/CreateLocacaoUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Api/Modules/Locacao/Tests/UseCases/DeleteLocacaoUseCaseTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: app/Api/Modules/Locacao/Tests/UseCases/DeleteLocacaoUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Locacao/Tests/UseCases/GetLocacaoUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 5
+			path: app/Api/Modules/Locacao/Tests/UseCases/UpdateLocacaoUseCaseTest.php
+
+		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$id\.$#'
 			identifier: property.notFound
 			count: 1
@@ -209,6 +461,84 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Marca/Resources/MarcaResource.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Api/Modules/Marca/Tests/Data/UpdateMarcaDataTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Marca/Tests/Integrations/CreateMarcaIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/Integrations/DeleteMarcaIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Marca/Tests/Integrations/DeleteMarcaIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Marca/Tests/Integrations/GetMarcaIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Marca/Tests/Integrations/GetMarcaIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/Integrations/UpdateMarcaIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Marca/Tests/Integrations/UpdateMarcaIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/UseCases/CreateMarcaUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/UseCases/DeleteMarcaUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/UseCases/GetMarcaUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Marca/Tests/UseCases/GetMarcasUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Api/Modules/Marca/Tests/UseCases/UpdateMarcaUseCaseTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$abs\.$#'
@@ -263,6 +593,90 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Api/Modules/Modelo/Tests/Data/CreateModeloDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 5
+			path: app/Api/Modules/Modelo/Tests/Data/UpdateModeloDataTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Api/Modules/Modelo/Tests/Integrations/CreateModeloIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Modelo/Tests/Integrations/CreateModeloIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Tests/Integrations/DeleteModeloIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 2
+			path: app/Api/Modules/Modelo/Tests/Integrations/DeleteModeloIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Modelo/Tests/Integrations/GetModeloIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Modelo/Tests/Integrations/GetModeloIntegrationTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Modelo/Tests/Integrations/UpdateModeloIntegrationTest.php
+
+		-
+			message: '#^Result of method Illuminate\\Contracts\\Auth\\StatefulGuard\:\:login\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 3
+			path: app/Api/Modules/Modelo/Tests/Integrations/UpdateModeloIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Modelo/Tests/UseCases/CreateModeloUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Api/Modules/Modelo/Tests/UseCases/DeleteModeloUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Tests/UseCases/GetModelosUseCaseTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Api/Modules/Modelo/Tests/UseCases/UpdateModeloUseCaseTest.php
 
 		-
 			message: '#^PHPDoc type array\<int, string\> of property App\\Models\\User\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'

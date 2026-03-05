@@ -25,6 +25,12 @@ class Locacao extends Model
         'km_final',
     ];
 
+    protected $casts = [
+        'data_inicio_periodo' => 'date',
+        'data_final_previsto_periodo' => 'date',
+        'data_final_realizado_periodo' => 'date',
+    ];
+
     public function cliente(): BelongsTo
     {
         return $this->belongsTo(Cliente::class);
