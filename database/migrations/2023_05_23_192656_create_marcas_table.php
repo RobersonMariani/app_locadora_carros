@@ -8,22 +8,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('marcas', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 30)->unique();
-            $table->string('imagem', 100)->comment('Logo da marca');
+            $table->string('imagem', 100);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('marcas');

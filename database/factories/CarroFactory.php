@@ -15,18 +15,20 @@ class CarroFactory extends Factory
 {
     protected $model = Carro::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
             'modelo_id' => Modelo::factory(),
-            'placa' => strtoupper(fake()->unique()->regexify('[A-Z]{3}[0-9]{4}')),
-            'disponivel' => fake()->boolean(),
-            'km' => fake()->numberBetween(0, 999999),
+            'placa' => strtoupper(fake()->unique()->bothify('???#?##')),
+            'disponivel' => true,
+            'km' => fake()->numberBetween(0, 150000),
         ];
+    }
+
+    public function indisponivel(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'disponivel' => false,
+        ]);
     }
 }
