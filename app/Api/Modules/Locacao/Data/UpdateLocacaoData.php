@@ -21,6 +21,7 @@ class UpdateLocacaoData extends Data
         public ?float $valorDiaria = null,
         public ?int $kmInicial = null,
         public ?int $kmFinal = null,
+        public ?string $observacoes = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -34,6 +35,7 @@ class UpdateLocacaoData extends Data
             'valor_diaria' => ['nullable', 'numeric', 'min:0'],
             'km_inicial' => ['nullable', 'integer'],
             'km_final' => ['nullable', 'integer'],
+            'observacoes' => ['nullable', 'string'],
         ];
     }
 
@@ -71,6 +73,10 @@ class UpdateLocacaoData extends Data
 
         if ($this->kmFinal !== null) {
             $data['km_final'] = $this->kmFinal;
+        }
+
+        if ($this->observacoes !== null) {
+            $data['observacoes'] = $this->observacoes;
         }
 
         return $data;

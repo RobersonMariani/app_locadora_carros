@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Api\Modules\Locacao\Data;
 
+use App\Api\Modules\Locacao\Enums\LocacaoStatusEnum;
+use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;
@@ -21,6 +23,8 @@ class CreateLocacaoData extends Data
         public float $valorDiaria,
         public int $kmInicial,
         public ?int $kmFinal = null,
+        public ?string $status = null,
+        public ?string $observacoes = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -34,6 +38,8 @@ class CreateLocacaoData extends Data
             'valor_diaria' => ['required', 'numeric', 'min:0'],
             'km_inicial' => ['required', 'integer'],
             'km_final' => ['nullable', 'integer'],
+            'status' => ['nullable', 'string', Rule::in(LocacaoStatusEnum::values())],
+            'observacoes' => ['nullable', 'string'],
         ];
     }
 
@@ -48,6 +54,8 @@ class CreateLocacaoData extends Data
             'valor_diaria' => $this->valorDiaria,
             'km_inicial' => $this->kmInicial,
             'km_final' => $this->kmFinal,
+            'status' => $this->status ?? LocacaoStatusEnum::RESERVADA->value,
+            'observacoes' => $this->observacoes,
         ];
     }
 }
