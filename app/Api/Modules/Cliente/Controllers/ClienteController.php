@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Api\Modules\Cliente\Controllers;
 
-use App\Api\Modules\Cliente\Data\CreateClienteData;
 use App\Api\Modules\Cliente\Data\ClienteQueryData;
+use App\Api\Modules\Cliente\Data\CreateClienteData;
 use App\Api\Modules\Cliente\Data\UpdateClienteData;
 use App\Api\Modules\Cliente\Resources\ClienteResource;
 use App\Api\Modules\Cliente\UseCases\CreateClienteUseCase;

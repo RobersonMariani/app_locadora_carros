@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Api\Modules\Marca\Controllers;
 
 use App\Api\Modules\Marca\Data\CreateMarcaData;

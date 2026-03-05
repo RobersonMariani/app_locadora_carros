@@ -39,12 +39,15 @@ class UpdateCarroData extends Data
         if ($this->modeloId !== null) {
             $data['modelo_id'] = $this->modeloId;
         }
+
         if ($this->placa !== null) {
             $data['placa'] = $this->placa;
         }
+
         if ($this->disponivel !== null) {
             $data['disponivel'] = $this->disponivel;
         }
+
         if ($this->km !== null) {
             $data['km'] = $this->km;
         }

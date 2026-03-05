@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Api\Modules\Modelo\Resources;
 
 use App\Api\Modules\Marca\Resources\MarcaResource;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Api\Modules\Locacao\Data;
 
 use Spatie\LaravelData\Attributes\MapName;
@@ -15,7 +17,7 @@ class CreateLocacaoData extends Data
         public int $carroId,
         public string $dataInicioPeriodo,
         public string $dataFinalPrevistoPeriodo,
-        public ?string $dataFinalRealizadoPeriodo = null,
+        public ?string $dataFinalRealizadoPeriodo,
         public float $valorDiaria,
         public int $kmInicial,
         public ?int $kmFinal = null,

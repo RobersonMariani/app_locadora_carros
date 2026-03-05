@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Api\Modules\Auth\Controllers\AuthController;
 use App\Api\Modules\Carro\Controllers\CarroController;
 use App\Api\Modules\Cliente\Controllers\ClienteController;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Api\Modules\Locacao\Data;
 
 use Spatie\LaravelData\Attributes\MapName;
@@ -42,24 +44,31 @@ class UpdateLocacaoData extends Data
         if ($this->clienteId !== null) {
             $data['cliente_id'] = $this->clienteId;
         }
+
         if ($this->carroId !== null) {
             $data['carro_id'] = $this->carroId;
         }
+
         if ($this->dataInicioPeriodo !== null) {
             $data['data_inicio_periodo'] = $this->dataInicioPeriodo;
         }
+
         if ($this->dataFinalPrevistoPeriodo !== null) {
             $data['data_final_previsto_periodo'] = $this->dataFinalPrevistoPeriodo;
         }
+
         if ($this->dataFinalRealizadoPeriodo !== null) {
             $data['data_final_realizado_periodo'] = $this->dataFinalRealizadoPeriodo;
         }
+
         if ($this->valorDiaria !== null) {
             $data['valor_diaria'] = $this->valorDiaria;
         }
+
         if ($this->kmInicial !== null) {
             $data['km_inicial'] = $this->kmInicial;
         }
+
         if ($this->kmFinal !== null) {
             $data['km_final'] = $this->kmFinal;
         }
