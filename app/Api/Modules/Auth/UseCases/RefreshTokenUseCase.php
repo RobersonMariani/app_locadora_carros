@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Api\Modules\Auth\UseCases;
 
-use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\JWTGuard;
 
 class RefreshTokenUseCase
 {
     public function execute(): string
     {
-        return Auth::guard('api')->refresh();
+        /** @var JWTGuard $guard */
+        $guard = auth('api');
+
+        return $guard->refresh();
     }
 }

@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Api\Modules\Auth\UseCases;
 
-use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\JWTGuard;
 
 class LogoutUseCase
 {
     public function execute(): void
     {
-        Auth::guard('api')->logout();
+        /** @var JWTGuard $guard */
+        $guard = auth('api');
+
+        $guard->logout();
     }
 }
