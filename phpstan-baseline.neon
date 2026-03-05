@@ -1,0 +1,277 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Auth\\Resources\\AuthResource\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Auth/Resources/AuthResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Auth\\Resources\\AuthResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Auth/Resources/AuthResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Auth\\Resources\\AuthResource\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Auth/Resources/AuthResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$disponivel\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$km\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$modelo_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$placa\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\CarroResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/CarroResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$abs\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$air_bag\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$lugares\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$nome\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Carro\\Resources\\ModeloResource\:\:\$numero_portas\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Carro/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$nome\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Cliente\\Resources\\ClienteResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Cliente/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$carro_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$cliente\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$cliente_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$data_final_previsto_periodo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$data_final_realizado_periodo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$data_inicio_periodo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$km_final\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$km_inicial\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Locacao\\Resources\\LocacaoResource\:\:\$valor_diaria\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Locacao/Resources/LocacaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Marca/Resources/MarcaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$imagem\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Marca/Resources/MarcaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Marca\\Resources\\MarcaResource\:\:\$nome\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Marca/Resources/MarcaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$abs\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$air_bag\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$imagem\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$lugares\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$marca\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$marca_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$nome\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Modelo\\Resources\\ModeloResource\:\:\$numero_portas\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Modelo/Resources/ModeloResource.php
+
+		-
+			message: '#^PHPDoc type array\<int, string\> of property App\\Models\\User\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^PHPDoc type array\<int, string\> of property App\\Models\\User\:\:\$hidden is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$hidden\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Models/User.php
