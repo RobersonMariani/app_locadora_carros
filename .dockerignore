@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.env.backup
+.env.production
+vendor
+node_modules
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+.phpunit.cache
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+docker-compose.override.yml
