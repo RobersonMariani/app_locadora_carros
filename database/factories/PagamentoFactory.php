@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Api\Modules\Pagamento\Enums\MetodoPagamentoEnum;
+use App\Api\Modules\Pagamento\Enums\PagamentoStatusEnum;
 use App\Api\Modules\Pagamento\Enums\PagamentoTipoEnum;
 use App\Models\Locacao;
 use App\Models\Pagamento;
@@ -23,6 +24,7 @@ class PagamentoFactory extends Factory
             'locacao_id' => Locacao::factory(),
             'valor' => fake()->randomFloat(2, 50, 1000),
             'tipo' => fake()->randomElement(PagamentoTipoEnum::values()),
+            'status' => fake()->randomElement(PagamentoStatusEnum::values()),
             'metodo_pagamento' => fake()->randomElement(MetodoPagamentoEnum::values()),
             'data_pagamento' => fake()->dateTimeBetween('-3 months', 'now'),
             'observacoes' => fake()->optional(0.3)->sentence(),

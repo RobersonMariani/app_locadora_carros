@@ -5,11 +5,18 @@ declare(strict_types=1);
 namespace App\Api\Modules\Dashboard\Repositories;
 
 use App\Api\Modules\Locacao\Enums\LocacaoStatusEnum;
+use App\Api\Modules\Manutencao\Enums\ManutencaoStatusEnum;
+use App\Api\Modules\Multa\Enums\MultaStatusEnum;
+use App\Api\Modules\Pagamento\Enums\PagamentoStatusEnum;
+use App\Models\Alerta;
 use App\Models\Carro;
 use App\Models\Cliente;
 use App\Models\Locacao;
+use App\Models\Manutencao;
 use App\Models\Marca;
 use App\Models\Modelo;
+use App\Models\Multa;
+use App\Models\Pagamento;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -32,6 +39,47 @@ class DashboardRepository
             ->whereYear('data_final_realizado_periodo', now()->year)
             ->sum('valor_total');
 
+        $carrosEmManutencao = (int) Manutencao::query()
+            ->where('status', ManutencaoStatusEnum::EM_ANDAMENTO)
+            ->count(DB::raw('DISTINCT carro_id'));
+
+        $taxaOcupacao = $totalCarros > 0
+            ? round(($carrosLocados / $totalCarros) * 100, 2)
+            : 0.0;
+
+        $locacoesAtrasadas = Locacao::query()
+            ->where('status', LocacaoStatusEnum::ATIVA)
+            ->where('atrasada', true)
+            ->count();
+
+        $totalMultasPendentes = Multa::query()
+            ->where('status', MultaStatusEnum::PENDENTE)
+            ->count();
+
+        $valorMultasPendentes = (float) Multa::query()
+            ->where('status', MultaStatusEnum::PENDENTE)
+            ->sum('valor');
+
+        $totalAReceber = (float) Pagamento::query()
+            ->where('status', PagamentoStatusEnum::PENDENTE)
+            ->sum('valor');
+
+        $totalRecebidoMes = (float) Pagamento::query()
+            ->where('status', PagamentoStatusEnum::PAGO)
+            ->whereMonth('data_pagamento', now()->month)
+            ->whereYear('data_pagamento', now()->year)
+            ->sum('valor');
+
+        $manutencoesProximas = Manutencao::query()
+            ->where('status', ManutencaoStatusEnum::AGENDADA)
+            ->whereNotNull('data_proxima')
+            ->whereBetween('data_proxima', [now()->startOfDay(), now()->addDays(7)->endOfDay()])
+            ->count();
+
+        $alertasNaoLidos = Alerta::query()
+            ->where('lido', false)
+            ->count();
+
         return [
             'total_marcas' => $totalMarcas,
             'total_modelos' => $totalModelos,
@@ -42,6 +90,15 @@ class DashboardRepository
             'locacoes_ativas' => $locacoesAtivas,
             'locacoes_reservadas' => $locacoesReservadas,
             'faturamento_mes' => $faturamentoMes,
+            'carros_em_manutencao' => $carrosEmManutencao,
+            'taxa_ocupacao' => $taxaOcupacao,
+            'locacoes_atrasadas' => $locacoesAtrasadas,
+            'total_multas_pendentes' => $totalMultasPendentes,
+            'valor_multas_pendentes' => $valorMultasPendentes,
+            'total_a_receber' => $totalAReceber,
+            'total_recebido_mes' => $totalRecebidoMes,
+            'manutencoes_proximas' => $manutencoesProximas,
+            'alertas_nao_lidos' => $alertasNaoLidos,
         ];
     }
 

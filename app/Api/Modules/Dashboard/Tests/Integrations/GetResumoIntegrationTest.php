@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Api\Modules\Dashboard\Tests\Integrations;
 
+use App\Api\Modules\Dashboard\Tests\Assertables\ResumoAssertableJson;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
@@ -28,17 +30,9 @@ class GetResumoIntegrationTest extends TestCase
             ->withHeader('Authorization', 'Bearer '.$token)
             ->getJson(self::ENDPOINT)
             ->assertOk()
-            ->assertJsonStructure([
-                'total_marcas',
-                'total_modelos',
-                'total_carros',
-                'total_clientes',
-                'carros_disponiveis',
-                'carros_locados',
-                'locacoes_ativas',
-                'locacoes_reservadas',
-                'faturamento_mes',
-            ]);
+            ->assertJson(function (AssertableJson $json) {
+                ResumoAssertableJson::schema($json);
+            });
     }
 
     public function testShouldReturnUnauthorizedWhenNotAuthenticated(): void

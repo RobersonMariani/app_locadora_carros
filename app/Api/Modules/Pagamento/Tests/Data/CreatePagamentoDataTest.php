@@ -35,6 +35,9 @@ class CreatePagamentoDataTest extends TestCase
             'valor_min' => [array_merge(self::validPayload(), ['valor' => 0.01])],
             'with_observacoes' => [array_merge(self::validPayload(), ['observacoes' => 'Pagamento em dia'])],
             'observacoes_max_length' => [array_merge(self::validPayload(), ['observacoes' => str_repeat('a', 500)])],
+            'with_status_pendente' => [array_merge(self::validPayload(), ['status' => 'pendente'])],
+            'with_status_pago' => [array_merge(self::validPayload(), ['status' => 'pago'])],
+            'with_status_cancelado' => [array_merge(self::validPayload(), ['status' => 'cancelado'])],
         ];
     }
 
@@ -54,6 +57,7 @@ class CreatePagamentoDataTest extends TestCase
             'data_pagamento_null' => [array_merge(self::validPayload(), ['data_pagamento' => null]), 'data_pagamento'],
             'data_pagamento_invalid' => [array_merge(self::validPayload(), ['data_pagamento' => 'invalid-date']), 'data_pagamento'],
             'observacoes_too_long' => [array_merge(self::validPayload(), ['observacoes' => str_repeat('a', 501)]), 'observacoes'],
+            'status_invalid' => [array_merge(self::validPayload(), ['status' => 'invalido']), 'status'],
         ];
     }
 

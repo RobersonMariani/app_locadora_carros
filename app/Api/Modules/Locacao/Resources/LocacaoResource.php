@@ -28,6 +28,7 @@ class LocacaoResource extends JsonResource
             'km_inicial' => $this->km_inicial,
             'km_final' => $this->km_final,
             'observacoes' => $this->observacoes,
+            'atrasada' => (bool) $this->atrasada,
             'cliente' => ClienteResource::make($this->whenLoaded('cliente')),
             'carro' => CarroResource::make($this->whenLoaded('carro')),
             'pagamentos' => $this->whenLoaded('pagamentos', fn () => PagamentoResource::collection($this->pagamentos)),

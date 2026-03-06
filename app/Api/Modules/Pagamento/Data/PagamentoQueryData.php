@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api\Modules\Pagamento\Data;
 
 use App\Api\Modules\Pagamento\Enums\MetodoPagamentoEnum;
+use App\Api\Modules\Pagamento\Enums\PagamentoStatusEnum;
 use App\Api\Modules\Pagamento\Enums\PagamentoTipoEnum;
 use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Attributes\MapName;
@@ -18,6 +19,7 @@ class PagamentoQueryData extends Data
     public function __construct(
         public ?int $locacaoId = null,
         public ?string $tipo = null,
+        public ?string $status = null,
         public ?string $metodoPagamento = null,
         public ?string $dataPagamentoInicio = null,
         public ?string $dataPagamentoFim = null,
@@ -32,6 +34,7 @@ class PagamentoQueryData extends Data
         return [
             'locacao_id' => ['nullable', 'integer', 'exists:locacoes,id'],
             'tipo' => ['nullable', 'string', Rule::in(PagamentoTipoEnum::values())],
+            'status' => ['nullable', 'string', Rule::in(PagamentoStatusEnum::values())],
             'metodo_pagamento' => ['nullable', 'string', Rule::in(MetodoPagamentoEnum::values())],
             'data_pagamento_inicio' => ['nullable', 'date'],
             'data_pagamento_fim' => ['nullable', 'date', 'after_or_equal:data_pagamento_inicio'],

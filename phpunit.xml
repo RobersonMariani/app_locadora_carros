@@ -23,6 +23,12 @@
         <testsuite name="Auth">
             <directory>app/Api/Modules/Auth/Tests</directory>
         </testsuite>
+        <testsuite name="Alerta">
+            <directory>app/Api/Modules/Alerta/Tests</directory>
+        </testsuite>
+        <testsuite name="Jobs">
+            <directory>app/Jobs/Tests</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>

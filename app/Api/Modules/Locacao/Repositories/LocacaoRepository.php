@@ -8,6 +8,7 @@ use App\Api\Modules\Locacao\Data\LocacaoQueryData;
 use App\Api\Modules\Locacao\Enums\LocacaoStatusEnum;
 use App\Models\Locacao;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class LocacaoRepository
 {
@@ -82,5 +83,22 @@ class LocacaoRepository
         $locacao->update(array_merge($dados, ['status' => LocacaoStatusEnum::FINALIZADA->value]));
 
         return $locacao->refresh();
+    }
+
+    public function marcarAtrasada(int $id): Locacao
+    {
+        $locacao = Locacao::query()->findOrFail($id);
+        $locacao->update(['atrasada' => true]);
+
+        return $locacao->refresh();
+    }
+
+    public function getLocacoesAtivasAtrasadas(): Collection
+    {
+        return Locacao::query()
+            ->where('status', LocacaoStatusEnum::ATIVA)
+            ->where('data_final_previsto_periodo', '<', now()->toDateString())
+            ->where('atrasada', false)
+            ->get();
     }
 }

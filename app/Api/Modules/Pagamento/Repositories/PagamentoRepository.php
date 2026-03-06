@@ -29,6 +29,7 @@ class PagamentoRepository
             ->with('locacao:id,cliente_id,carro_id,status')
             ->when($query->locacaoId, fn ($q, $v) => $q->where('locacao_id', $v))
             ->when($query->tipo, fn ($q, $v) => $q->where('tipo', $v))
+            ->when($query->status, fn ($q, $v) => $q->where('status', $v))
             ->when($query->metodoPagamento, fn ($q, $v) => $q->where('metodo_pagamento', $v))
             ->when($query->dataPagamentoInicio, fn ($q, $v) => $q->whereDate('data_pagamento', '>=', $v))
             ->when($query->dataPagamentoFim, fn ($q, $v) => $q->whereDate('data_pagamento', '<=', $v))

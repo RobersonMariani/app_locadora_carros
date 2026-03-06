@@ -29,10 +29,12 @@ class Locacao extends Model
         'km_inicial',
         'km_final',
         'observacoes',
+        'atrasada',
     ];
 
     protected $casts = [
         'status' => LocacaoStatusEnum::class,
+        'atrasada' => 'boolean',
         'data_inicio_periodo' => 'date',
         'data_final_previsto_periodo' => 'date',
         'data_final_realizado_periodo' => 'date',

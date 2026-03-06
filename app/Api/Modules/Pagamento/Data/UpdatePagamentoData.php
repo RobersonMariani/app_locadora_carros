@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api\Modules\Pagamento\Data;
 
 use App\Api\Modules\Pagamento\Enums\MetodoPagamentoEnum;
+use App\Api\Modules\Pagamento\Enums\PagamentoStatusEnum;
 use App\Api\Modules\Pagamento\Enums\PagamentoTipoEnum;
 use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Attributes\MapName;
@@ -19,6 +20,7 @@ class UpdatePagamentoData extends Data
         public ?int $locacaoId = null,
         public ?float $valor = null,
         public ?string $tipo = null,
+        public ?string $status = null,
         public ?string $metodoPagamento = null,
         public ?string $dataPagamento = null,
         public ?string $observacoes = null,
@@ -30,6 +32,7 @@ class UpdatePagamentoData extends Data
             'locacao_id' => ['nullable', 'integer', 'exists:locacoes,id'],
             'valor' => ['nullable', 'numeric', 'min:0.01'],
             'tipo' => ['nullable', 'string', Rule::in(PagamentoTipoEnum::values())],
+            'status' => ['nullable', 'string', Rule::in(PagamentoStatusEnum::values())],
             'metodo_pagamento' => ['nullable', 'string', Rule::in(MetodoPagamentoEnum::values())],
             'data_pagamento' => ['nullable', 'date'],
             'observacoes' => ['nullable', 'string', 'max:500'],
@@ -50,6 +53,10 @@ class UpdatePagamentoData extends Data
 
         if ($this->tipo !== null) {
             $data['tipo'] = $this->tipo;
+        }
+
+        if ($this->status !== null) {
+            $data['status'] = $this->status;
         }
 
         if ($this->metodoPagamento !== null) {

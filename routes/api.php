@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Api\Modules\Alerta\Controllers\AlertaController;
 use App\Api\Modules\Auth\Controllers\AuthController;
 use App\Api\Modules\Carro\Controllers\CarroController;
 use App\Api\Modules\Cliente\Controllers\ClienteController;
@@ -39,6 +40,10 @@ Route::prefix('v1')->middleware(['jwt.auth', 'throttle:api'])->group(function ()
     Route::get('cliente/{cliente}/multa', [MultaController::class, 'indexByCliente']);
     Route::apiResource('multa', MultaController::class);
     Route::apiResource('pagamento', PagamentoController::class);
+    Route::get('alerta/count', [AlertaController::class, 'count'])->name('alerta.count');
+    Route::patch('alerta/lidos', [AlertaController::class, 'marcarTodosComoLidos'])->name('alerta.marcar-todos');
+    Route::patch('alerta/{alerta}/lido', [AlertaController::class, 'marcarComoLido'])->name('alerta.marcar-lido');
+    Route::get('alerta', [AlertaController::class, 'index'])->name('alerta.index');
     Route::post('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
 });

@@ -27,6 +27,15 @@ class GetResumoUseCaseTest extends TestCase
             'locacoes_ativas' => 3,
             'locacoes_reservadas' => 2,
             'faturamento_mes' => 15000.50,
+            'carros_em_manutencao' => 2,
+            'taxa_ocupacao' => 25.0,
+            'locacoes_atrasadas' => 1,
+            'total_multas_pendentes' => 3,
+            'valor_multas_pendentes' => 450.00,
+            'total_a_receber' => 3200.00,
+            'total_recebido_mes' => 8500.00,
+            'manutencoes_proximas' => 4,
+            'alertas_nao_lidos' => 5,
         ];
 
         $this->instance(
@@ -47,5 +56,14 @@ class GetResumoUseCaseTest extends TestCase
         $this->assertEquals($expectedResumo, $result);
         $this->assertArrayHasKey('total_marcas', $result);
         $this->assertArrayHasKey('faturamento_mes', $result);
+        $this->assertArrayHasKey('carros_em_manutencao', $result);
+        $this->assertArrayHasKey('taxa_ocupacao', $result);
+        $this->assertArrayHasKey('locacoes_atrasadas', $result);
+        $this->assertArrayHasKey('total_multas_pendentes', $result);
+        $this->assertArrayHasKey('valor_multas_pendentes', $result);
+        $this->assertArrayHasKey('total_a_receber', $result);
+        $this->assertArrayHasKey('total_recebido_mes', $result);
+        $this->assertArrayHasKey('manutencoes_proximas', $result);
+        $this->assertArrayHasKey('alertas_nao_lidos', $result);
     }
 }

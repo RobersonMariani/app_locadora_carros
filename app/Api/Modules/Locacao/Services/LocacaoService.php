@@ -7,6 +7,7 @@ namespace App\Api\Modules\Locacao\Services;
 use App\Api\Modules\Carro\Repositories\CarroRepository;
 use App\Api\Modules\Locacao\Enums\LocacaoStatusEnum;
 use App\Api\Modules\Locacao\Repositories\LocacaoRepository;
+use App\Jobs\GerarCobrancasFinalizacaoJob;
 use App\Models\Locacao;
 use Carbon\Carbon;
 use InvalidArgumentException;
@@ -98,6 +99,8 @@ class LocacaoService
         ]);
 
         $this->carroRepository->marcarDisponivel($locacao->carro_id);
+
+        GerarCobrancasFinalizacaoJob::dispatch($locacaoAtualizada)->onQueue('financial');
 
         return $locacaoAtualizada;
     }

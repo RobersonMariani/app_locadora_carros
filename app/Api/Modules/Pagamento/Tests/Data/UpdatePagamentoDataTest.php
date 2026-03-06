@@ -27,6 +27,8 @@ class UpdatePagamentoDataTest extends TestCase
             'update_data_pagamento' => [['data_pagamento' => '2024-02-20']],
             'update_observacoes' => [['observacoes' => 'Atualizado']],
             'update_locacao_id' => [['locacao_id' => 1]],
+            'update_status_pago' => [['status' => 'pago']],
+            'update_status_cancelado' => [['status' => 'cancelado']],
         ];
     }
 
@@ -40,6 +42,7 @@ class UpdatePagamentoDataTest extends TestCase
             'data_pagamento_invalid' => [['data_pagamento' => 'invalid'], 'data_pagamento'],
             'observacoes_too_long' => [['observacoes' => str_repeat('a', 501)], 'observacoes'],
             'locacao_id_not_exists' => [['locacao_id' => 99999], 'locacao_id'],
+            'status_invalid' => [['status' => 'invalido'], 'status'],
         ];
     }
 

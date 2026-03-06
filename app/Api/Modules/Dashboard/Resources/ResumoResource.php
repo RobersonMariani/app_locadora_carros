@@ -29,6 +29,15 @@ class ResumoResource extends JsonResource
             'locacoes_ativas' => $this->resource['locacoes_ativas'],
             'locacoes_reservadas' => $this->resource['locacoes_reservadas'],
             'faturamento_mes' => (float) $this->resource['faturamento_mes'],
+            'carros_em_manutencao' => $this->resource['carros_em_manutencao'],
+            'taxa_ocupacao' => (float) $this->resource['taxa_ocupacao'],
+            'locacoes_atrasadas' => $this->resource['locacoes_atrasadas'],
+            'total_multas_pendentes' => $this->resource['total_multas_pendentes'],
+            'valor_multas_pendentes' => (float) $this->resource['valor_multas_pendentes'],
+            'total_a_receber' => (float) $this->resource['total_a_receber'],
+            'total_recebido_mes' => (float) $this->resource['total_recebido_mes'],
+            'manutencoes_proximas' => $this->resource['manutencoes_proximas'],
+            'alertas_nao_lidos' => $this->resource['alertas_nao_lidos'],
         ];
     }
 }

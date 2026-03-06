@@ -23,6 +23,7 @@ class PagamentoQueryDataTest extends TestCase
             'empty_query' => [[]],
             'with_locacao_id' => [['locacao_id' => 1]],
             'with_tipo' => [['tipo' => 'diaria']],
+            'with_status' => [['status' => 'pendente']],
             'with_metodo_pagamento' => [['metodo_pagamento' => 'pix']],
             'with_date_range' => [
                 [
@@ -38,6 +39,7 @@ class PagamentoQueryDataTest extends TestCase
     {
         return [
             'tipo_invalid' => [['tipo' => 'invalido'], 'tipo'],
+            'status_invalid' => [['status' => 'invalido'], 'status'],
             'metodo_pagamento_invalid' => [['metodo_pagamento' => 'invalido'], 'metodo_pagamento'],
             'data_pagamento_inicio_invalid' => [['data_pagamento_inicio' => 'invalid'], 'data_pagamento_inicio'],
             'data_pagamento_fim_before_inicio' => [

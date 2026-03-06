@@ -18,6 +18,8 @@ class PagamentoResource extends JsonResource
             'valor' => (float) $this->valor,
             'tipo' => $this->tipo?->value,
             'tipo_label' => $this->tipo?->label(),
+            'status' => $this->status?->value,
+            'status_label' => $this->status?->label(),
             'metodo_pagamento' => $this->metodo_pagamento?->value,
             'metodo_pagamento_label' => $this->metodo_pagamento?->label(),
             'data_pagamento' => $this->data_pagamento?->format('Y-m-d'),

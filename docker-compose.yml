@@ -63,6 +63,22 @@ services:
     networks:
       - locadora_network
 
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: php artisan queue:work redis --queue=financial,monitoring --tries=3 --timeout=60
+    container_name: locadora_queue
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+      - /var/www/vendor
+    depends_on:
+      - app
+      - redis
+    networks:
+      - locadora_network
+
 volumes:
   mysql_data:
   redis_data:
