@@ -29,7 +29,7 @@ class CreateModeloData extends Data
         return [
             'marca_id' => ['required', 'integer', 'exists:marcas,id'],
             'nome' => ['required', 'string', 'max:30', 'min:3', Rule::unique('modelos', 'nome')],
-            'imagem' => ['required', 'file', 'mimes:png,jpeg,jpg'],
+            'imagem' => ['required', 'file', 'mimes:png,jpeg,jpg', 'max:2048'],
             'numero_portas' => ['required', 'integer', 'digits_between:1,5'],
             'lugares' => ['required', 'integer', 'digits_between:1,20'],
             'air_bag' => ['required', 'boolean'],

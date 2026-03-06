@@ -12,7 +12,7 @@ use App\Api\Modules\Modelo\Controllers\ModeloController;
 use App\Api\Modules\Pagamento\Controllers\PagamentoController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('v1')->middleware('jwt.auth')->group(function () {
+Route::prefix('v1')->middleware(['jwt.auth', 'throttle:api'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('resumo', [DashboardController::class, 'resumo']);
         Route::get('locacoes-por-status', [DashboardController::class, 'locacoesPorStatus']);
@@ -32,5 +32,5 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('refresh', [AuthController::class, 'refresh']);
+Route::post('login', [AuthController::class, 'login'])->middleware('throttle:login');
+Route::post('refresh', [AuthController::class, 'refresh'])->middleware('throttle:login');

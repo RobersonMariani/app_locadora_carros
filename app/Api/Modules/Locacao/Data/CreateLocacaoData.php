@@ -39,7 +39,7 @@ class CreateLocacaoData extends Data
             'km_inicial' => ['required', 'integer'],
             'km_final' => ['nullable', 'integer'],
             'status' => ['nullable', 'string', Rule::in(LocacaoStatusEnum::values())],
-            'observacoes' => ['nullable', 'string'],
+            'observacoes' => ['nullable', 'string', 'max:1000'],
         ];
     }
 

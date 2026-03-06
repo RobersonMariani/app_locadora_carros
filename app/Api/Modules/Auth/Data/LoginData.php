@@ -20,8 +20,8 @@ class LoginData extends Data
     public static function rules(ValidationContext $context): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'max:128'],
         ];
     }
 

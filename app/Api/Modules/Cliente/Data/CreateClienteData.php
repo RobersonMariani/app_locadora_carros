@@ -24,12 +24,12 @@ class CreateClienteData extends Data
     public static function rules(ValidationContext $context): array
     {
         return [
-            'nome' => ['required', 'string', 'max:30'],
-            'cpf' => ['required', 'string', 'max:14', 'unique:clientes,cpf'],
+            'nome' => ['required', 'string', 'min:3', 'max:100'],
+            'cpf' => ['required', 'string', 'regex:/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', 'unique:clientes,cpf'],
             'email' => ['nullable', 'string', 'email', 'max:255', 'unique:clientes,email'],
-            'telefone' => ['nullable', 'string', 'max:20'],
-            'data_nascimento' => ['nullable', 'date'],
-            'cnh' => ['nullable', 'string', 'max:20', 'unique:clientes,cnh'],
+            'telefone' => ['nullable', 'string', 'regex:/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', 'max:20'],
+            'data_nascimento' => ['nullable', 'date', 'before:today'],
+            'cnh' => ['nullable', 'string', 'regex:/^\d{11}$/', 'unique:clientes,cnh'],
         ];
     }
 

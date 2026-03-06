@@ -35,7 +35,7 @@ class UpdateLocacaoData extends Data
             'valor_diaria' => ['nullable', 'numeric', 'min:0'],
             'km_inicial' => ['nullable', 'integer'],
             'km_final' => ['nullable', 'integer'],
-            'observacoes' => ['nullable', 'string'],
+            'observacoes' => ['nullable', 'string', 'max:1000'],
         ];
     }
 

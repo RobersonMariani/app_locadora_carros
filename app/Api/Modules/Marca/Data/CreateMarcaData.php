@@ -23,7 +23,7 @@ class CreateMarcaData extends Data
     {
         return [
             'nome' => ['required', 'string', 'max:30', Rule::unique('marcas', 'nome')],
-            'imagem' => ['required', 'file', 'mimes:png'],
+            'imagem' => ['required', 'file', 'mimes:png', 'max:2048'],
         ];
     }
 

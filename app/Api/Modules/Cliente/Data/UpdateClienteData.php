@@ -27,12 +27,12 @@ class UpdateClienteData extends Data
         $clienteId = request()->route('cliente');
 
         return [
-            'nome' => ['nullable', 'string', 'max:30'],
-            'cpf' => ['nullable', 'string', 'max:14', Rule::unique('clientes', 'cpf')->ignore($clienteId)],
+            'nome' => ['nullable', 'string', 'min:3', 'max:100'],
+            'cpf' => ['nullable', 'string', 'regex:/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', Rule::unique('clientes', 'cpf')->ignore($clienteId)],
             'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('clientes', 'email')->ignore($clienteId)],
-            'telefone' => ['nullable', 'string', 'max:20'],
-            'data_nascimento' => ['nullable', 'date'],
-            'cnh' => ['nullable', 'string', 'max:20', Rule::unique('clientes', 'cnh')->ignore($clienteId)],
+            'telefone' => ['nullable', 'string', 'regex:/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', 'max:20'],
+            'data_nascimento' => ['nullable', 'date', 'before:today'],
+            'cnh' => ['nullable', 'string', 'regex:/^\d{11}$/', Rule::unique('clientes', 'cnh')->ignore($clienteId)],
         ];
     }
 

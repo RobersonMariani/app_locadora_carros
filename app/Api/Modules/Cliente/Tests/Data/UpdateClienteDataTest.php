@@ -24,16 +24,20 @@ class UpdateClienteDataTest extends TestCase
     {
         return [
             'all_required_fields' => [self::validPayload()],
-            'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 30)])],
+            'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 100)])],
         ];
     }
 
     public static function invalidData(): array
     {
         return [
-            'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 31)]), 'nome'],
+            'nome_too_short' => [array_merge(self::validPayload(), ['nome' => 'AB']), 'nome'],
+            'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 101)]), 'nome'],
             'nome_not_string' => [array_merge(self::validPayload(), ['nome' => 123]), 'nome'],
             'email_invalid' => [array_merge(self::validPayload(), ['email' => 'invalid-email']), 'email'],
+            'cpf_invalid_format' => [array_merge(self::validPayload(), ['cpf' => '12345678900']), 'cpf'],
+            'telefone_invalid_format' => [array_merge(self::validPayload(), ['telefone' => '11999999999']), 'telefone'],
+            'cnh_invalid_format' => [array_merge(self::validPayload(), ['cnh' => 'ABC']), 'cnh'],
         ];
     }
 

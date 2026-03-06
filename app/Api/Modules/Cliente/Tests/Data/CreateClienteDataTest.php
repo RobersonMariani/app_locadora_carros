@@ -28,10 +28,10 @@ class CreateClienteDataTest extends TestCase
     {
         return [
             'all_required_fields' => [self::validPayload()],
-            'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 30)])],
+            'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 100)])],
             'with_optional_fields' => [array_merge(self::validPayload(), [
                 'email' => 'test@example.com',
-                'telefone' => '11999999999',
+                'telefone' => '(11) 99999-9999',
                 'data_nascimento' => '1990-01-15',
                 'cnh' => '12345678901',
             ])],
@@ -43,13 +43,16 @@ class CreateClienteDataTest extends TestCase
         return [
             'nome_null' => [array_merge(self::validPayload(), ['nome' => null]), 'nome'],
             'nome_empty' => [array_merge(self::validPayload(), ['nome' => '']), 'nome'],
-            'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 31)]), 'nome'],
+            'nome_too_short' => [array_merge(self::validPayload(), ['nome' => 'AB']), 'nome'],
+            'nome_too_long' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 101)]), 'nome'],
             'nome_not_string' => [array_merge(self::validPayload(), ['nome' => 123]), 'nome'],
             'nome_missing' => [collect(self::validPayload())->except('nome')->toArray(), 'nome'],
             'cpf_null' => [array_merge(self::validPayload(), ['cpf' => null]), 'cpf'],
             'cpf_empty' => [array_merge(self::validPayload(), ['cpf' => '']), 'cpf'],
-            'cpf_too_long' => [array_merge(self::validPayload(), ['cpf' => str_repeat('1', 15)]), 'cpf'],
+            'cpf_invalid_format' => [array_merge(self::validPayload(), ['cpf' => '12345678900']), 'cpf'],
             'cpf_missing' => [collect(self::validPayload())->except('cpf')->toArray(), 'cpf'],
+            'telefone_invalid_format' => [array_merge(self::validPayload(), ['telefone' => '11999999999']), 'telefone'],
+            'cnh_invalid_format' => [array_merge(self::validPayload(), ['cnh' => '123']), 'cnh'],
         ];
     }
 

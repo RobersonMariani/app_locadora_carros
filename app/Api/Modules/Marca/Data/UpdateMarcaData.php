@@ -30,7 +30,7 @@ class UpdateMarcaData extends Data
                 'max:30',
                 Rule::unique('marcas', 'nome')->ignore($marcaId),
             ],
-            'imagem' => ['nullable', 'file', 'mimes:png'],
+            'imagem' => ['nullable', 'file', 'mimes:png', 'max:2048'],
         ];
     }
 

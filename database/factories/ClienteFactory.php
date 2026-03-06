@@ -20,7 +20,7 @@ class ClienteFactory extends Factory
             'nome' => fake()->name(),
             'cpf' => fake()->unique()->numerify('###.###.###-##'),
             'email' => fake()->unique()->safeEmail(),
-            'telefone' => fake()->phoneNumber(),
+            'telefone' => fake()->numerify('(##) #####-####'),
             'data_nascimento' => fake()->dateTimeBetween('-60 years', '-18 years'),
             'cnh' => fake()->unique()->numerify('###########'),
         ];

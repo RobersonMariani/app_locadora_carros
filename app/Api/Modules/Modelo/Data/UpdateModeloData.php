@@ -31,7 +31,7 @@ class UpdateModeloData extends Data
         return [
             'marca_id' => ['nullable', 'integer', 'exists:marcas,id'],
             'nome' => ['nullable', 'string', 'max:30', 'min:3', Rule::unique('modelos', 'nome')->ignore($modeloId)],
-            'imagem' => ['nullable', 'file', 'mimes:png,jpeg,jpg'],
+            'imagem' => ['nullable', 'file', 'mimes:png,jpeg,jpg', 'max:2048'],
             'numero_portas' => ['nullable', 'integer', 'digits_between:1,5'],
             'lugares' => ['nullable', 'integer', 'digits_between:1,20'],
             'air_bag' => ['nullable', 'boolean'],
