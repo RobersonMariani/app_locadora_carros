@@ -25,6 +25,21 @@ class UpdateClienteDataTest extends TestCase
         return [
             'all_required_fields' => [self::validPayload()],
             'nome_max_length' => [array_merge(self::validPayload(), ['nome' => str_repeat('a', 100)])],
+            'bloqueado_true_with_motivo' => [array_merge(self::validPayload(), [
+                'bloqueado' => true,
+                'motivo_bloqueio' => 'Inadimplência',
+            ])],
+            'bloqueado_false' => [array_merge(self::validPayload(), ['bloqueado' => false])],
+            'bloqueado_true_motivo_max_length' => [array_merge(self::validPayload(), [
+                'bloqueado' => true,
+                'motivo_bloqueio' => str_repeat('a', 255),
+            ])],
+            'with_endereco_fields' => [array_merge(self::validPayload(), [
+                'endereco' => 'Rua das Flores, 123',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'cep' => '01310-100',
+            ])],
         ];
     }
 
@@ -38,6 +53,17 @@ class UpdateClienteDataTest extends TestCase
             'cpf_invalid_format' => [array_merge(self::validPayload(), ['cpf' => '12345678900']), 'cpf'],
             'telefone_invalid_format' => [array_merge(self::validPayload(), ['telefone' => '11999999999']), 'telefone'],
             'cnh_invalid_format' => [array_merge(self::validPayload(), ['cnh' => 'ABC']), 'cnh'],
+            'bloqueado_true_without_motivo' => [array_merge(self::validPayload(), ['bloqueado' => true]), 'motivo_bloqueio'],
+            'bloqueado_true_motivo_empty' => [array_merge(self::validPayload(), [
+                'bloqueado' => true,
+                'motivo_bloqueio' => '',
+            ]), 'motivo_bloqueio'],
+            'bloqueado_true_motivo_too_long' => [array_merge(self::validPayload(), [
+                'bloqueado' => true,
+                'motivo_bloqueio' => str_repeat('a', 256),
+            ]), 'motivo_bloqueio'],
+            'estado_invalid_format' => [array_merge(self::validPayload(), ['estado' => 'S']), 'estado'],
+            'cep_invalid_format' => [array_merge(self::validPayload(), ['cep' => '01310100']), 'cep'],
         ];
     }
 

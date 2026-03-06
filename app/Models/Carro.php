@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Api\Modules\Carro\Enums\CambioEnum;
+use App\Api\Modules\Carro\Enums\CategoriaCarroEnum;
+use App\Api\Modules\Carro\Enums\CombustivelEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -23,10 +26,20 @@ class Carro extends Model
         'renavam',
         'disponivel',
         'km',
+        'combustivel',
+        'cambio',
+        'categoria',
+        'ar_condicionado',
+        'diaria_padrao',
     ];
 
     protected $casts = [
         'disponivel' => 'boolean',
+        'ar_condicionado' => 'boolean',
+        'combustivel' => CombustivelEnum::class,
+        'cambio' => CambioEnum::class,
+        'categoria' => CategoriaCarroEnum::class,
+        'diaria_padrao' => 'decimal:2',
     ];
 
     public function scopeDisponivel(Builder $query): Builder
@@ -52,5 +65,15 @@ class Carro extends Model
     public function locacoes(): HasMany
     {
         return $this->hasMany(Locacao::class);
+    }
+
+    public function manutencoes(): HasMany
+    {
+        return $this->hasMany(Manutencao::class);
+    }
+
+    public function multas(): HasMany
+    {
+        return $this->hasMany(Multa::class);
     }
 }

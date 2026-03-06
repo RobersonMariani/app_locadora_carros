@@ -40,6 +40,18 @@ class CreateCarroDataTest extends TestCase
             'disponivel_false' => [array_merge(self::validPayload(), ['disponivel' => false])],
             'km_zero' => [array_merge(self::validPayload(), ['km' => 0])],
             'with_renavam' => [array_merge(self::validPayload(), ['renavam' => '12345678901'])],
+            'with_combustivel' => [array_merge(self::validPayload(), ['combustivel' => 'flex'])],
+            'with_cambio' => [array_merge(self::validPayload(), ['cambio' => 'automatico'])],
+            'with_categoria' => [array_merge(self::validPayload(), ['categoria' => 'sedan'])],
+            'with_ar_condicionado_false' => [array_merge(self::validPayload(), ['ar_condicionado' => false])],
+            'with_diaria_padrao' => [array_merge(self::validPayload(), ['diaria_padrao' => 150.50])],
+            'with_all_optional_fields' => [array_merge(self::validPayload(), [
+                'combustivel' => 'gasolina',
+                'cambio' => 'manual',
+                'categoria' => 'economico',
+                'ar_condicionado' => true,
+                'diaria_padrao' => 200.00,
+            ])],
         ];
     }
 
@@ -60,6 +72,10 @@ class CreateCarroDataTest extends TestCase
             'cor_empty' => [array_merge(self::validPayload(), ['cor' => '']), 'cor'],
             'ano_fabricacao_missing' => [collect(self::validPayload())->except('ano_fabricacao')->toArray(), 'ano_fabricacao'],
             'ano_modelo_missing' => [collect(self::validPayload())->except('ano_modelo')->toArray(), 'ano_modelo'],
+            'combustivel_invalid' => [array_merge(self::validPayload(), ['combustivel' => 'invalido']), 'combustivel'],
+            'cambio_invalid' => [array_merge(self::validPayload(), ['cambio' => 'invalido']), 'cambio'],
+            'categoria_invalid' => [array_merge(self::validPayload(), ['categoria' => 'invalido']), 'categoria'],
+            'diaria_padrao_negative' => [array_merge(self::validPayload(), ['diaria_padrao' => -10]), 'diaria_padrao'],
         ];
     }
 

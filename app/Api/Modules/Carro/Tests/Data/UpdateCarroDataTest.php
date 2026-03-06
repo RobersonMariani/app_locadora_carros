@@ -48,9 +48,19 @@ class UpdateCarroDataTest extends TestCase
                     'placa' => 'XYZ9876',
                     'disponivel' => true,
                     'km' => 75000,
+                    'combustivel' => 'flex',
+                    'cambio' => 'automatico',
+                    'categoria' => 'sedan',
+                    'ar_condicionado' => false,
+                    'diaria_padrao' => 180.00,
                 ],
             ],
             'placa_max_length' => [['placa' => str_repeat('A', 10)]],
+            'only_combustivel' => [['combustivel' => 'gasolina']],
+            'only_cambio' => [['cambio' => 'manual']],
+            'only_categoria' => [['categoria' => 'suv']],
+            'only_ar_condicionado' => [['ar_condicionado' => false]],
+            'only_diaria_padrao' => [['diaria_padrao' => 250.50]],
             'empty_payload' => [[]],
         ];
     }
@@ -63,6 +73,10 @@ class UpdateCarroDataTest extends TestCase
             'placa_not_string' => [['placa' => 123], 'placa'],
             'disponivel_not_boolean' => [['disponivel' => 'yes'], 'disponivel'],
             'km_not_integer' => [['km' => 1.5], 'km'],
+            'combustivel_invalid' => [['combustivel' => 'invalido'], 'combustivel'],
+            'cambio_invalid' => [['cambio' => 'invalido'], 'cambio'],
+            'categoria_invalid' => [['categoria' => 'invalido'], 'categoria'],
+            'diaria_padrao_negative' => [['diaria_padrao' => -50], 'diaria_padrao'],
         ];
     }
 

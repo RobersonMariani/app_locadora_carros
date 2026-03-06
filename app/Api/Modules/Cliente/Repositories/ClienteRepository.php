@@ -26,6 +26,9 @@ class ClienteRepository
             ->when($query->search, fn ($q, $v) => $q->where('nome', 'like', "%{$v}%"))
             ->when($query->cpf, fn ($q, $v) => $q->where('cpf', 'like', "%{$v}%"))
             ->when($query->email, fn ($q, $v) => $q->where('email', 'like', "%{$v}%"))
+            ->when($query->cidade, fn ($q, $v) => $q->where('cidade', 'like', "%{$v}%"))
+            ->when($query->estado, fn ($q, $v) => $q->where('estado', $v))
+            ->when($query->bloqueado !== null, fn ($q) => $q->where('bloqueado', $query->bloqueado))
             ->orderBy('id', 'desc')
             ->paginate(perPage: $query->perPage, page: $query->page);
     }

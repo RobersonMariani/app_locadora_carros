@@ -109,4 +109,23 @@ class CreateLocacaoIntegrationTest extends TestCase
             ->postJson(self::ENDPOINT, $payload)
             ->assertUnauthorized();
     }
+
+    public function testShouldReturnErrorWhenClienteIsBloqueado(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $clienteBloqueado = Cliente::factory()->create(['bloqueado' => true]);
+        $setup = $this->createClienteAndCarro();
+        $payload = $this->validPayload($clienteBloqueado, $setup['carro']);
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->postJson(self::ENDPOINT, $payload);
+
+        $response->assertUnprocessable();
+        $response->assertJsonValidationErrors(['cliente_id']);
+    }
 }

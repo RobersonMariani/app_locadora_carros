@@ -85,4 +85,30 @@ class GetClienteIntegrationTest extends TestCase
             ->getJson(self::ENDPOINT_INDEX.'/1')
             ->assertUnauthorized();
     }
+
+    public function testIndexShouldReturnClientesFilteredByCidadeEstadoBloqueadoWhenQueryParamsProvided(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $clienteBloqueado = Cliente::factory()->create([
+            'cidade' => 'São Paulo',
+            'estado' => 'SP',
+            'bloqueado' => true,
+        ]);
+        Cliente::factory()->create([
+            'cidade' => 'Rio de Janeiro',
+            'estado' => 'RJ',
+            'bloqueado' => false,
+        ]);
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->getJson(self::ENDPOINT_INDEX.'?cidade=São Paulo&estado=SP&bloqueado=1')
+            ->assertOk();
+
+        $response->assertJsonFragment(['id' => $clienteBloqueado->id, 'cidade' => 'São Paulo', 'estado' => 'SP']);
+    }
 }

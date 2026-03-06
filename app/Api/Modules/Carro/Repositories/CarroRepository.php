@@ -28,6 +28,9 @@ class CarroRepository
             ->when($query->cor, fn ($q, $v) => $q->where('cor', $v))
             ->when($query->anoFabricacao !== null, fn ($q) => $q->where('ano_fabricacao', $query->anoFabricacao))
             ->when($query->disponivel !== null, fn ($q) => $q->where('disponivel', $query->disponivel))
+            ->when($query->combustivel, fn ($q, $v) => $q->where('combustivel', $v))
+            ->when($query->cambio, fn ($q, $v) => $q->where('cambio', $v))
+            ->when($query->categoria, fn ($q, $v) => $q->where('categoria', $v))
             ->orderBy('id', 'desc')
             ->paginate(perPage: $query->perPage, page: $query->page);
     }

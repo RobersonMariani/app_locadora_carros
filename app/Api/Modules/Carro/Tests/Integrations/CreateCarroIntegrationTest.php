@@ -48,6 +48,45 @@ class CreateCarroIntegrationTest extends TestCase
             });
     }
 
+    public function testShouldReturnCreatedWhenDataIsValidWithOptionalFields(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $marca = Marca::factory()->create();
+        $modelo = Modelo::factory()->create(['marca_id' => $marca->id]);
+        $payload = [
+            'modelo_id' => $modelo->id,
+            'placa' => 'XYZ9876',
+            'disponivel' => true,
+            'km' => 30000,
+            'cor' => 'Preto',
+            'ano_fabricacao' => 2024,
+            'ano_modelo' => 2025,
+            'combustivel' => 'flex',
+            'cambio' => 'automatico',
+            'categoria' => 'sedan',
+            'ar_condicionado' => true,
+            'diaria_padrao' => 180.50,
+        ];
+
+        // Act & Assert
+        $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->postJson(self::ENDPOINT, $payload)
+            ->assertCreated()
+            ->assertJson(function (AssertableJson $json) {
+                CarroAssertableJson::schema($json)
+                    ->where('combustivel', 'flex')
+                    ->where('cambio', 'automatico')
+                    ->where('categoria', 'sedan')
+                    ->where('ar_condicionado', true)
+                    ->where('diaria_padrao', 180.50)
+                    ->etc();
+            });
+    }
+
     public function testShouldReturnUnprocessableWhenRequiredFieldsMissing(): void
     {
         // Arrange

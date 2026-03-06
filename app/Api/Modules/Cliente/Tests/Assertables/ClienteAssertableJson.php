@@ -18,6 +18,12 @@ class ClienteAssertableJson
             ->has('telefone')
             ->has('data_nascimento')
             ->has('cnh')
+            ->has('endereco')
+            ->has('cidade')
+            ->has('estado')
+            ->has('cep')
+            ->whereType('bloqueado', 'boolean')
+            ->has('motivo_bloqueio')
             ->whereType('created_at', 'string')
             ->whereType('updated_at', 'string')
             ->etc();

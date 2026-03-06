@@ -19,6 +19,10 @@ class CreateClienteData extends Data
         public ?string $telefone = null,
         public ?string $dataNascimento = null,
         public ?string $cnh = null,
+        public ?string $endereco = null,
+        public ?string $cidade = null,
+        public ?string $estado = null,
+        public ?string $cep = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -30,6 +34,10 @@ class CreateClienteData extends Data
             'telefone' => ['nullable', 'string', 'regex:/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', 'max:20'],
             'data_nascimento' => ['nullable', 'date', 'before:today'],
             'cnh' => ['nullable', 'string', 'regex:/^\d{11}$/', 'unique:clientes,cnh'],
+            'endereco' => ['nullable', 'string', 'max:255'],
+            'cidade' => ['nullable', 'string', 'max:100'],
+            'estado' => ['nullable', 'string', 'regex:/^[A-Z]{2}$/'],
+            'cep' => ['nullable', 'string', 'regex:/^\d{5}-\d{3}$/'],
         ];
     }
 
@@ -42,6 +50,10 @@ class CreateClienteData extends Data
             'telefone' => $this->telefone,
             'data_nascimento' => $this->dataNascimento,
             'cnh' => $this->cnh,
+            'endereco' => $this->endereco,
+            'cidade' => $this->cidade,
+            'estado' => $this->estado,
+            'cep' => $this->cep,
         ];
     }
 }

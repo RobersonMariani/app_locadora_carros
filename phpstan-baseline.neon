@@ -697,6 +697,156 @@ parameters:
 			path: app/Api/Modules/Pagamento/Resources/PagamentoResource.php
 
 		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$locacao_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$tipo\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$combustivel_nivel\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$km_registrado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$observacoes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$realizado_por\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$realizadoPor\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$data_vistoria\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Vistoria\\Resources\\VistoriaResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Vistoria/Resources/VistoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$carro_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$cliente_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$codigo_infracao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$data_infracao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$data_pagamento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$descricao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$locacao_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$observacoes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$pontos\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Multa\\Resources\\MultaResource\:\:\$valor\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Multa/Resources/MultaResource.php
+
+		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
 			count: 4
@@ -791,3 +941,201 @@ parameters:
 			identifier: property.phpDocType
 			count: 1
 			path: app/Models/User.php
+
+		-
+			message: '#^Parameter \$createManutencaoUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\CreateManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$createManutencaoUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\CreateManutencaoUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Parameter \$getManutencaoUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$getManutencaoUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencaoUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Parameter \$getManutencoesUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$getManutencoesUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Parameter \$getManutencoesByCarroUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesByCarroUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$getManutencoesByCarroUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesByCarroUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Parameter \$getManutencoesProximasUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesProximasUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$getManutencoesProximasUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesProximasUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Parameter \$updateManutencaoUseCase of method App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:__construct\(\) has invalid type App\\Api\\Modules\\Manutencao\\UseCases\\UpdateManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Property App\\Api\\Modules\\Manutencao\\Controllers\\ManutencaoController\:\:\$updateManutencaoUseCase has unknown class App\\Api\\Modules\\Manutencao\\UseCases\\UpdateManutencaoUseCase as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\CreateManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\UpdateManutencaoUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesByCarroUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Call to method execute\(\) on an unknown class App\\Api\\Modules\\Manutencao\\UseCases\\GetManutencoesProximasUseCase\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Controllers/ManutencaoController.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$carro_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$tipo\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$descricao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$valor\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$km_manutencao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$data_manutencao\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$data_proxima\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$fornecedor\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$observacoes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Api\\Modules\\Manutencao\\Resources\\ManutencaoResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Resources/ManutencaoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Manutencao\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Services/ManutencaoService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Manutencao\:\:\$carro_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Api/Modules/Manutencao/Services/ManutencaoService.php

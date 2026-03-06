@@ -104,4 +104,14 @@ class Locacao extends Model
     {
         return $this->hasMany(Pagamento::class);
     }
+
+    public function vistorias(): HasMany
+    {
+        return $this->hasMany(Vistoria::class);
+    }
+
+    public function multas(): HasMany
+    {
+        return $this->hasMany(Multa::class);
+    }
 }

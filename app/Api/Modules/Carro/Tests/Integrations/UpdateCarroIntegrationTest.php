@@ -31,6 +31,11 @@ class UpdateCarroIntegrationTest extends TestCase
             'placa' => 'XYZ9876',
             'disponivel' => false,
             'km' => 60000,
+            'combustivel' => 'flex',
+            'cambio' => 'automatico',
+            'categoria' => 'suv',
+            'ar_condicionado' => false,
+            'diaria_padrao' => 220.00,
         ];
 
         // Act & Assert

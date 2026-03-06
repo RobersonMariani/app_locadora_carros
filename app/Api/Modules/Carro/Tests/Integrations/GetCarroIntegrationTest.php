@@ -91,4 +91,56 @@ class GetCarroIntegrationTest extends TestCase
             ->getJson(self::ENDPOINT_INDEX.'/1')
             ->assertUnauthorized();
     }
+
+    public function testIndexShouldReturnFilteredCarrosWhenCombustivelFilterApplied(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $marca = Marca::factory()->create();
+        $modelo = Modelo::factory()->create(['marca_id' => $marca->id]);
+        Carro::factory()->create(['modelo_id' => $modelo->id, 'combustivel' => 'flex', 'placa' => 'ABC1234']);
+        Carro::factory()->create(['modelo_id' => $modelo->id, 'combustivel' => 'diesel', 'placa' => 'XYZ9876']);
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->getJson(self::ENDPOINT_INDEX.'?combustivel=flex')
+            ->assertOk();
+
+        $response->assertJsonFragment(['placa' => 'ABC1234']);
+        $response->assertJsonMissing(['placa' => 'XYZ9876']);
+    }
+
+    public function testIndexShouldReturnFilteredCarrosWhenCambioAndCategoriaFiltersApplied(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $marca = Marca::factory()->create();
+        $modelo = Modelo::factory()->create(['marca_id' => $marca->id]);
+        Carro::factory()->create([
+            'modelo_id' => $modelo->id,
+            'cambio' => 'automatico',
+            'categoria' => 'sedan',
+            'placa' => 'FILTRO1',
+        ]);
+        Carro::factory()->create([
+            'modelo_id' => $modelo->id,
+            'cambio' => 'manual',
+            'categoria' => 'suv',
+            'placa' => 'FILTRO2',
+        ]);
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->getJson(self::ENDPOINT_INDEX.'?cambio=automatico&categoria=sedan')
+            ->assertOk();
+
+        $response->assertJsonFragment(['placa' => 'FILTRO1']);
+        $response->assertJsonMissing(['placa' => 'FILTRO2']);
+    }
 }

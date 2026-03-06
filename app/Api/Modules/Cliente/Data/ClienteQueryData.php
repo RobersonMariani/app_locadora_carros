@@ -16,6 +16,9 @@ class ClienteQueryData extends Data
         public ?string $search = null,
         public ?string $cpf = null,
         public ?string $email = null,
+        public ?string $cidade = null,
+        public ?string $estado = null,
+        public ?bool $bloqueado = null,
         public ?int $page = 1,
         public ?int $perPage = null,
     ) {
@@ -28,6 +31,9 @@ class ClienteQueryData extends Data
             'search' => ['nullable', 'string', 'max:100'],
             'cpf' => ['nullable', 'string', 'max:14'],
             'email' => ['nullable', 'string', 'max:255'],
+            'cidade' => ['nullable', 'string', 'max:100'],
+            'estado' => ['nullable', 'string', 'max:2'],
+            'bloqueado' => ['nullable', 'boolean'],
             'page' => ['nullable', 'integer', 'min:1'],
             'per_page' => ['nullable', 'integer', 'min:1', 'max:100'],
         ];

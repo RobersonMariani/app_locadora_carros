@@ -39,6 +39,41 @@ class CreateClienteIntegrationTest extends TestCase
             });
     }
 
+    public function testShouldReturnCreatedWithEnderecoFieldsWhenProvided(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $payload = [
+            'nome' => 'Maria Santos',
+            'cpf' => '987.654.321-00',
+            'email' => 'maria@example.com',
+            'telefone' => '(11) 98765-4321',
+            'endereco' => 'Rua das Flores, 123',
+            'cidade' => 'São Paulo',
+            'estado' => 'SP',
+            'cep' => '01310-100',
+        ];
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->postJson(self::ENDPOINT, $payload)
+            ->assertCreated()
+            ->assertJson(function (AssertableJson $json) {
+                ClienteAssertableJson::schema($json);
+            });
+
+        $response->assertJsonFragment([
+            'endereco' => 'Rua das Flores, 123',
+            'cidade' => 'São Paulo',
+            'estado' => 'SP',
+            'cep' => '01310-100',
+            'bloqueado' => false,
+        ]);
+    }
+
     public function testShouldReturnUnprocessableWhenRequiredFieldsMissing(): void
     {
         // Arrange

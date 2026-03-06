@@ -36,6 +36,33 @@ class UpdateClienteIntegrationTest extends TestCase
             });
     }
 
+    public function testShouldReturnUpdatedClienteWithBloqueioWhenPayloadValid(): void
+    {
+        // Arrange
+        $user = User::factory()->create(['password' => 'password']);
+        $token = auth('api')->login($user);
+        $cliente = Cliente::factory()->create(['bloqueado' => false]);
+        $payload = [
+            'bloqueado' => true,
+            'motivo_bloqueio' => 'Inadimplência recorrente',
+        ];
+
+        // Act & Assert
+        $response = $this
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Authorization', 'Bearer '.$token)
+            ->putJson('/api/v1/cliente/'.$cliente->id, $payload)
+            ->assertOk()
+            ->assertJson(function (AssertableJson $json) {
+                ClienteAssertableJson::schema($json);
+            });
+
+        $response->assertJsonFragment([
+            'bloqueado' => true,
+            'motivo_bloqueio' => 'Inadimplência recorrente',
+        ]);
+    }
+
     public function testShouldReturnNotFoundWhenIdDoesNotExist(): void
     {
         // Arrange

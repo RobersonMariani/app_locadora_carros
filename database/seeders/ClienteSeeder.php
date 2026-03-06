@@ -11,6 +11,11 @@ class ClienteSeeder extends Seeder
 {
     public function run(): void
     {
-        Cliente::factory(15)->create();
+        Cliente::factory(12)->create();
+
+        Cliente::factory(3)->create([
+            'bloqueado' => true,
+            'motivo_bloqueio' => 'Inadimplência de locações anteriores.',
+        ]);
     }
 }

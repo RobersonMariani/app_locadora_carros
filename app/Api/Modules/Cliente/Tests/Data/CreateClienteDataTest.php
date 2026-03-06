@@ -35,6 +35,12 @@ class CreateClienteDataTest extends TestCase
                 'data_nascimento' => '1990-01-15',
                 'cnh' => '12345678901',
             ])],
+            'with_endereco_fields' => [array_merge(self::validPayload(), [
+                'endereco' => 'Rua das Flores, 123',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'cep' => '01310-100',
+            ])],
         ];
     }
 
@@ -53,6 +59,11 @@ class CreateClienteDataTest extends TestCase
             'cpf_missing' => [collect(self::validPayload())->except('cpf')->toArray(), 'cpf'],
             'telefone_invalid_format' => [array_merge(self::validPayload(), ['telefone' => '11999999999']), 'telefone'],
             'cnh_invalid_format' => [array_merge(self::validPayload(), ['cnh' => '123']), 'cnh'],
+            'estado_invalid_format' => [array_merge(self::validPayload(), ['estado' => 'S']), 'estado'],
+            'estado_invalid_format_long' => [array_merge(self::validPayload(), ['estado' => 'SPP']), 'estado'],
+            'estado_invalid_lowercase' => [array_merge(self::validPayload(), ['estado' => 'sp']), 'estado'],
+            'cep_invalid_format' => [array_merge(self::validPayload(), ['cep' => '01310100']), 'cep'],
+            'cep_invalid_format_without_dash' => [array_merge(self::validPayload(), ['cep' => '01310-1000']), 'cep'],
         ];
     }
 

@@ -19,6 +19,12 @@ class ClienteResource extends JsonResource
             'telefone' => $this->telefone,
             'data_nascimento' => $this->data_nascimento?->format('Y-m-d'),
             'cnh' => $this->maskCnh($this->cnh),
+            'endereco' => $this->endereco,
+            'cidade' => $this->cidade,
+            'estado' => $this->estado,
+            'cep' => $this->cep,
+            'bloqueado' => $this->bloqueado ?? false,
+            'motivo_bloqueio' => $this->motivo_bloqueio,
             'created_at' => $this->created_at?->toIso8601String(),
             'updated_at' => $this->updated_at?->toIso8601String(),
         ];

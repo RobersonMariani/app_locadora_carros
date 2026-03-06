@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Api\Modules\Carro\Enums\CambioEnum;
+use App\Api\Modules\Carro\Enums\CategoriaCarroEnum;
+use App\Api\Modules\Carro\Enums\CombustivelEnum;
 use App\Models\Carro;
 use App\Models\Modelo;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -28,6 +31,11 @@ class CarroFactory extends Factory
             'ano_fabricacao' => $anoFabricacao,
             'ano_modelo' => $anoFabricacao + fake()->randomElement([0, 1]),
             'renavam' => fake()->unique()->numerify('###########'),
+            'combustivel' => fake()->randomElement(CombustivelEnum::values()),
+            'cambio' => fake()->randomElement(CambioEnum::values()),
+            'categoria' => fake()->randomElement(CategoriaCarroEnum::values()),
+            'ar_condicionado' => true,
+            'diaria_padrao' => fake()->randomFloat(2, 80, 500),
         ];
     }
 
